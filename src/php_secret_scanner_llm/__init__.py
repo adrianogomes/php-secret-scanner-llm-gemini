@@ -1,0 +1,1 @@
+"""PHP Secret Scanner LLM."""

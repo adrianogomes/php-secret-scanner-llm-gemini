@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Ambiente virtual
+.venv/
+
+# Variáveis de ambiente
+.env
+
+# Relatórios e logs gerados
+reports/
+logs/
+
+# Build/distribuição
+dist/
+build/
+*.egg-info/
+
+# Sistema operacional / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
