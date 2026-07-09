@@ -47,26 +47,29 @@ Instale o Python 3.13 e o `uv`. Exemplo de instalação do uv:
 curl -LsSf [https://astral.sh/uv/install.sh](https://astral.sh/uv/install.sh) | sh
 ```
 
-Instalação e preparação
+## Instalação e preparação
 Clone este repositório e execute:
 
 
 uv sync
-Configuração do projeto
+
+## Configuração do projeto
 Copie o arquivo de exemplo de ambiente:
 
 Bash
 cp .env.example .env
-Configuração da LLM
+
+## Configuração da LLM
 No arquivo .env, ajuste LLM_PROVIDER (mock, disabled, openai). Se for openai, preencha LLM_API_KEY.
 
-Segurança no uso de LLM
+## Segurança no uso de LLM
 Atenção: Segredos completos nunca são enviados para a API de LLM. A função de sanitização mascara o valor (ex: ****) antes do envio ao provedor.
 
-Uso básico
+## Uso básico
 Bash
 uv run php-secret-scan <diretorio_ou_arquivo> --output <saida.html_ou_md>
-Opções da CLI
+
+## Opções da CLI
 --output / -o: Relatório gerado (.md ou .html)
 
 --llm-provider: mock, disabled, openai
@@ -79,16 +82,17 @@ Opções da CLI
 
 --llm-prompt-log: Caminho para log JSONL do prompt
 
-Exemplos de execução
+## Exemplos de execução
 Bash
 uv run php-secret-scan examples --output reports/relatorio.html --verbose
-Relatórios gerados
+
+## Relatórios gerados
 O sistema cria tabelas limpas informando linha, categoria, trecho (sempre sanitizado) e a justificativa (heurística ou da IA).
 
-Log de prompts da LLM
+## Log de prompts da LLM
 Pode ser gerado informando --llm-prompt-log logs/prompts.jsonl. Apenas o código já mascarado será salvo.
 
-Categorias de achados
+## Categorias de achados
 Senha/Credencial
 
 Token
@@ -112,25 +116,25 @@ $apiKey = "sk-exemplo"; // Detectado por heurística.
 Tratamento de erros
 Se a chave da OpenAI não for encontrada e --llm-provider openai for passado, o sistema fará um fallback elegante para heurísticas e alertará no relatório.
 
-Testes de reprodutibilidade
+## Testes de reprodutibilidade
 Veja docs/testes.md.
 
-Documentação complementar
+## Documentação complementar
 Veja CONTRIBUTING.md e ROADMAP.md.
 
-Desenvolvimento
+## Desenvolvimento
 Para testar, use uv run pytest. Para formatar, uv run ruff check ..
 
-Limitações conhecidas
+## Limitações conhecidas
 A ferramenta avalia arquivo por arquivo e não compreende fluxo de controle de variáveis em arquivos diferentes. A sanitização baseia-se em padrões RegExp pré-definidos.
 
-Boas práticas de segurança
+## Boas práticas de segurança
 Use variáveis de ambiente (getenv) e cofres de senhas, nunca faça hardcode de credenciais.
 
-Status do projeto
+## Status do projeto
 MVP - Prova de Conceito.
 
-Aviso
+## Aviso
 Esta ferramenta é um artefato experimental, desenvolvido exclusivamente para fins acadêmicos no contexto de uma disciplina de curso de mestrado.
 
 O projeto não foi concebido, validado ou homologado para uso real em ambientes de produção, auditorias profissionais de segurança, processos corporativos ou qualquer situação que exija garantia de precisão, completude ou confiabilidade.
@@ -141,7 +145,7 @@ O autor não se responsabiliza por quaisquer danos, perdas, falhas, decisões, i
 
 O uso deste artefato é de inteira responsabilidade de quem o utiliza.
 
-Licença
+## Licença
 Todos os direitos são reservados ao autor.
 
 Não é permitido o uso comercial deste software, de seu código-fonte, documentação, relatórios, exemplos ou quaisquer partes do projeto sem autorização prévia e expressa do autor.
